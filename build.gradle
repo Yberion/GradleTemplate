@@ -61,7 +61,7 @@ test {
 jacocoTestReport {
     // Display everything except App
     classDirectories.setFrom(
-        fileTree(dir: 'build/classes/java/**')
+        fileTree(dir: 'build/classes/java/main/fr/brandon/template/')
             .filter({file -> !file.name.equals('App.class')})
     )
 }
