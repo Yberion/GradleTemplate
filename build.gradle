@@ -38,8 +38,8 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
     // tinylog2 for logging
-    implementation 'org.tinylog:tinylog-api:2.1.2'
-    implementation 'org.tinylog:tinylog-impl:2.1.2'
+    implementation 'org.tinylog:tinylog-api:2.2.0'
+    implementation 'org.tinylog:tinylog-impl:2.2.0'
 }
 
 application {
