@@ -7,7 +7,7 @@ plugins {
     id 'distribution'
 
     // Spotless - keep your code spotless with Gradle
-    id "com.diffplug.spotless" version "5.6.1"
+    id "com.diffplug.spotless" version "5.10.2"
 
     id 'jacoco'
 }
@@ -32,14 +32,14 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter API for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
 
     // Use JUnit Jupiter Engine for testing.
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
 
     // tinylog2 for logging
-    implementation 'org.tinylog:tinylog-api:2.2.0'
-    implementation 'org.tinylog:tinylog-impl:2.2.0'
+    implementation 'org.tinylog:tinylog-api:2.2.1'
+    implementation 'org.tinylog:tinylog-impl:2.2.1'
 }
 
 application {
