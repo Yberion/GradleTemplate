@@ -23,15 +23,10 @@
  */
 package fr.brandon.template;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import org.junit.jupiter.api.Test;
-
-class AppTest
+public interface Hello
 {
-    @Test
-    void appHasAGreeting()
+    static String getGreeting()
     {
-        assertNotNull(Hello.getGreeting(), "app should have a greeting");
+        return "Hello world.";
     }
 }

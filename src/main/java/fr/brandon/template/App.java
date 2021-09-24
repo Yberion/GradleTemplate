@@ -29,6 +29,6 @@ public final class App
 {
     public static void main(String[] args)
     {
-        Logger.info(Test.getGreeting());
+        Logger.info(Hello.getGreeting());
     }
 }

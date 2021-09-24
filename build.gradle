@@ -7,7 +7,11 @@ plugins {
     id 'distribution'
 
     // Spotless - keep your code spotless with Gradle
-    id "com.diffplug.spotless" version "5.10.2"
+    id "com.diffplug.spotless" version "5.15.1"
+
+    id "com.github.ben-manes.versions" version "0.39.0"
+
+    id "io.freefair.lombok" version "6.2.0"
 
     id 'jacoco'
 }
@@ -19,8 +23,8 @@ compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 javadoc.options.encoding = "UTF-8"
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 compileJava.dependsOn 'spotlessApply'
 
@@ -31,15 +35,15 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter API for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
-
-    // Use JUnit Jupiter Engine for testing.
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
-
     // tinylog2 for logging
-    implementation 'org.tinylog:tinylog-api:2.2.1'
-    implementation 'org.tinylog:tinylog-impl:2.2.1'
+    implementation 'org.tinylog:tinylog-api:2.4.0-M1'
+    implementation 'org.tinylog:tinylog-impl:2.4.0-M1'
+    implementation "org.mapstruct:mapstruct:1.5.0.Beta1"
+
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.0.Beta1"
+
+    // Use JUnit Jupiter API for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }
 
 application {
@@ -63,6 +67,10 @@ jacocoTestReport {
         fileTree(dir: 'build/classes/java/main/fr/brandon/template/')
             .filter({file -> !file.name.equals('App.class')})
     )
+
+    reports {
+        xml.enabled true
+    }
 }
 
 spotless {
