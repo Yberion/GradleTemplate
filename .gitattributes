@@ -1,6 +1,28 @@
 #
 # https://help.github.com/articles/dealing-with-line-endings/
 #
+
+# The above will handle all files NOT found below
+# These files are text and should be normalized (Convert crlf => lf)
+*.bash          text eol=lf
+*.css           text diff=css
+*.df            text=auto
+*.htm           text diff=html
+*.html          text diff=html eol=lf
+*.java          text diff=java eol=lf
+*.js            text=auto
+*.json          text eol=lf
+*.jsp           text eol=lf
+*.jspf          text eol=lf
+*.jspx          text eol=lf
+*.properties    text eol=lf
+*.sh            text eol=lf
+*.tld           text=auto
+*.txt           text eol=lf
+*.tag           text=auto
+*.tagx          text=auto
+*.xml           text=auto
+*.yml           text eol=lf
+
 # These are explicitly windows files and should use crlf
 *.bat           text eol=crlf
-

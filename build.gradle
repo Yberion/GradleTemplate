@@ -1,54 +1,51 @@
 plugins {
     id 'java-library'
-
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
-
     id 'distribution'
+    id 'jacoco'
 
     // Spotless - keep your code spotless with Gradle
-    id "com.diffplug.spotless" version "5.15.1"
-
-    id "com.github.ben-manes.versions" version "0.39.0"
-
-    id "io.freefair.lombok" version "6.2.0"
-
-    id 'jacoco'
+    id "com.diffplug.spotless" version "6.4.1"
+    id "com.github.ben-manes.versions" version "0.42.0"
+    id "io.freefair.lombok" version "6.4.1"
 }
 
 group = 'fr.brandon'
-version = '1.0.0'
+version = '18.0.0'
 
-compileJava.options.encoding = "UTF-8"
-compileTestJava.options.encoding = "UTF-8"
-javadoc.options.encoding = "UTF-8"
-
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_18
+targetCompatibility = JavaVersion.VERSION_18
 
 compileJava.dependsOn 'spotlessApply'
-
 test.finalizedBy 'jacocoTestReport'
 
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 dependencies {
     // tinylog2 for logging
-    implementation 'org.tinylog:tinylog-api:2.4.0-M1'
-    implementation 'org.tinylog:tinylog-impl:2.4.0-M1'
-    implementation "org.mapstruct:mapstruct:1.5.0.Beta1"
+    implementation 'org.tinylog:tinylog-api:2.5.0-M1.1'
+    implementation 'org.tinylog:tinylog-impl:2.5.0-M1.1'
+    implementation "org.mapstruct:mapstruct:1.5.0.RC1"
 
-    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.0.Beta1"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.0.RC1"
 
     // Use JUnit Jupiter API for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
 }
 
 application {
     // Define the main class for the application.
     mainClassName = 'fr.brandon.template.App'
+}
+
+jacoco {
+    // Workaround until 0.8.8 official release
+    // https://www.jacoco.org/jacoco/trunk/doc/changes.html
+    toolVersion = "0.8.8-SNAPSHOT"
 }
 
 test {
@@ -65,15 +62,16 @@ jacocoTestReport {
     // Display everything except App
     classDirectories.setFrom(
         fileTree(dir: 'build/classes/java/main/fr/brandon/template/')
-            .filter({file -> !file.name.equals('App.class')})
+            .filter({file -> (file.name != 'App.class') })
     )
 
     reports {
-        xml.enabled true
+        xml.required = true
     }
 }
 
 spotless {
+    encoding 'UTF-8'
     format 'misc', {
         target '*.gradle', '*.md'
 
@@ -83,6 +81,7 @@ spotless {
     }
     java {
         target '**/*.java'
+        toggleOffOn()
 
         licenseHeaderFile 'resources/spotless/license/LICENSE.spotless'
 
