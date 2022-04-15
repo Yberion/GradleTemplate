@@ -6,13 +6,13 @@ plugins {
     id 'jacoco'
 
     // Spotless - keep your code spotless with Gradle
-    id "com.diffplug.spotless" version "6.4.1"
+    id "com.diffplug.spotless" version "6.4.2"
     id "com.github.ben-manes.versions" version "0.42.0"
-    id "io.freefair.lombok" version "6.4.1"
+    id "io.freefair.lombok" version "6.4.2"
 }
 
 group = 'fr.brandon'
-version = '18.0.0'
+version = '18.0.1'
 
 sourceCompatibility = JavaVersion.VERSION_18
 targetCompatibility = JavaVersion.VERSION_18
@@ -22,7 +22,6 @@ test.finalizedBy 'jacocoTestReport'
 
 repositories {
     mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 dependencies {
@@ -43,9 +42,7 @@ application {
 }
 
 jacoco {
-    // Workaround until 0.8.8 official release
-    // https://www.jacoco.org/jacoco/trunk/doc/changes.html
-    toolVersion = "0.8.8-SNAPSHOT"
+    toolVersion = "0.8.8"
 }
 
 test {
