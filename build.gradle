@@ -6,13 +6,13 @@ plugins {
     id 'jacoco'
 
     // Spotless - keep your code spotless with Gradle
-    id "com.diffplug.spotless" version "6.4.2"
+    id "com.diffplug.spotless" version "6.5.0"
     id "com.github.ben-manes.versions" version "0.42.0"
-    id "io.freefair.lombok" version "6.4.2"
+    id "io.freefair.lombok" version "6.4.3"
 }
 
 group = 'fr.brandon'
-version = '18.0.1'
+version = '18.0.2'
 
 sourceCompatibility = JavaVersion.VERSION_18
 targetCompatibility = JavaVersion.VERSION_18
