@@ -6,13 +6,13 @@ plugins {
     id 'jacoco'
 
     // Spotless - keep your code spotless with Gradle
-    id "com.diffplug.spotless" version "6.5.1"
+    id "com.diffplug.spotless" version "6.6.1"
     id "com.github.ben-manes.versions" version "0.42.0"
     id "io.freefair.lombok" version "6.4.3"
 }
 
 group = 'fr.brandon'
-version = '18.0.3'
+version = '18.0.4'
 
 sourceCompatibility = JavaVersion.VERSION_18
 targetCompatibility = JavaVersion.VERSION_18
@@ -39,10 +39,6 @@ dependencies {
 application {
     // Define the main class for the application.
     getMainClass().set('fr.brandon.template.App')
-}
-
-jacoco {
-    toolVersion = "0.8.8"
 }
 
 test {
