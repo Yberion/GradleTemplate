@@ -6,13 +6,13 @@ plugins {
     id 'jacoco'
 
     // Spotless - keep your code spotless with Gradle
-    id "com.diffplug.spotless" version "6.14.1"
-    id "com.github.ben-manes.versions" version "0.45.0"
-    id "io.freefair.lombok" version "6.6.1"
+    id "com.diffplug.spotless" version "6.19.0"
+    id "com.github.ben-manes.versions" version "0.47.0"
+    id "io.freefair.lombok" version "8.0.1"
 }
 
 group = 'fr.brandon'
-version = '19.0.0'
+version = '19.2.0'
 
 sourceCompatibility = JavaVersion.VERSION_19
 targetCompatibility = JavaVersion.VERSION_19
@@ -26,14 +26,14 @@ repositories {
 
 dependencies {
     // tinylog2 for logging
-    implementation 'org.tinylog:tinylog-api:2.6.0'
-    implementation 'org.tinylog:tinylog-impl:2.6.0'
-    implementation "org.mapstruct:mapstruct:1.5.3.Final"
+    implementation 'org.tinylog:tinylog-api:2.6.2'
+    implementation 'org.tinylog:tinylog-impl:2.6.2'
+    implementation "org.mapstruct:mapstruct:1.5.5.Final"
 
-    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.3.Final"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.5.Final"
 
     // Use JUnit Jupiter API for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0-M1'
 }
 
 application {
